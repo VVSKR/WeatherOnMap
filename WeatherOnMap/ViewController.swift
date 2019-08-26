@@ -20,7 +20,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         centerMapOnLocation(location: initialLocation)
+        
+        mapView.register ( WeatherkView.self,
+                           forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier )
+        
         loadInitialData()
         mapView.addAnnotations(weatherModel)
     }
@@ -48,11 +53,31 @@ class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
-       
     }
     
+}
+
+extension ViewController: MKMapViewDelegate {
     
-    
-    
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        guard let annotation = annotation as? WeatherAnotation else { return nil }
+//        let identifier = "marker"
+//        var view: MKMarkerAnnotationView
+//
+//        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//            as? MKMarkerAnnotationView {
+//            dequeuedView.annotation = annotation
+//            view = dequeuedView
+//        } else {
+//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//            view.canShowCallout = true
+//            view.calloutOffset = CGPoint(x: 0, y: 5)
+////            view.image = UIImage(named: annotation.image ?? "refresh")
+//            let image = UIImageView(frame: CGRect(origin: CGPoint.zero,
+//            size: CGSize(width: 30, height: 30)))
+//            image.image = UIImage(named: "sanny")
+//            view.rightCalloutAccessoryView = image
+//        }
+//        return view
+//    }
 }
