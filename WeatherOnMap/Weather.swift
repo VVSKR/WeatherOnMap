@@ -9,32 +9,29 @@
 import Foundation
 import MapKit
 
-
+class WeatherAnotation: NSObject, MKAnnotation {
+    
+    var title: String?
+    var subtitle: String?
+    var coordinate: CLLocationCoordinate2D
+    
+   init?(jsonData: Weather) {
+        self.title = jsonData.city.name
+        self.subtitle = String(jsonData.main.temp)
+        self.coordinate = CLLocationCoordinate2D(latitude: jsonData.city.coord.lat,
+                                                 longitude: jsonData.city.coord.lon)
+    
+    }
+}
 
 struct WeatherModel: Codable {
-    let weather: [test1]
-    
+    let weather: [Weather]
 }
 
-struct test1: Codable {
-    let time: Int
-
-}
-
-
-class Weather:NSObject, MKAnnotation, Codable {
+struct Weather: Codable {
     var city: City
     var main: TemperatureData
     var weather: [WeatherData]
-    var coordinate: CLLocationCoordinate2D
-    
-    init(jsonData: Weather) {
-        self.city = jsonData.city
-        self.main = jsonData.main
-        self.weather = jsonData.weather
-        self.coordinate = CLLocationCoordinate2D(latitude: jsonData.coordinate.latitude,
-                                                 longitude: jsonData.coordinate.longitude)
-    }
 }
 
 struct City: Codable {
@@ -44,8 +41,8 @@ struct City: Codable {
 }
 
 struct CoordData: Codable {
-    let lon: String
-    let lat: String
+    let lon: Double
+    let lat: Double
 }
 
 struct TemperatureData: Codable {

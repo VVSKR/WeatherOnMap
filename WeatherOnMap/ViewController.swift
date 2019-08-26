@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     let initialLocation = CLLocation(latitude: 55.7522200, longitude: 37.6155600)
     let regionRadius: CLLocationDistance = 3000
-    var weatherModel: Weather?
+    var weatherModel: [WeatherAnotation] = []
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -22,8 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         centerMapOnLocation(location: initialLocation)
         loadInitialData()
-        
-        //        mapView.addAnnotation()
+        mapView.addAnnotations(weatherModel)
     }
     
     
@@ -39,15 +38,18 @@ class ViewController: UIViewController {
             else { return }
        
         let optionalData = try! Data(contentsOf: URL(fileURLWithPath: fileName))
-        let str = String(decoding: optionalData, as: UTF8.self)
         let decoder = JSONDecoder()
  
         do {
             let decodeData = try decoder.decode(WeatherModel.self, from: optionalData)
+            let validWorks = decodeData.weather.compactMap { WeatherAnotation(jsonData: $0) }
+            weatherModel.append(contentsOf: validWorks)
             print("Yes")
         } catch {
             print(error.localizedDescription)
         }
+        
+       
     }
     
     
