@@ -12,6 +12,8 @@
 		F1768B5D2313D060009EBE1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1768B5B2313D060009EBE1A /* Main.storyboard */; };
 		F1768B5F2313D062009EBE1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1768B5E2313D062009EBE1A /* Assets.xcassets */; };
 		F1768B622313D062009EBE1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1768B602313D062009EBE1A /* LaunchScreen.storyboard */; };
+		F1768B6A2313D2AB009EBE1A /* weather_14.json in Resources */ = {isa = PBXBuildFile; fileRef = F1768B692313D2AB009EBE1A /* weather_14.json */; };
+		F1768B6C2313D3CE009EBE1A /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1768B6B2313D3CE009EBE1A /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		F1768B5E2313D062009EBE1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1768B612313D062009EBE1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1768B632313D062009EBE1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1768B692313D2AB009EBE1A /* weather_14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weather_14.json; sourceTree = "<group>"; };
+		F1768B6B2313D3CE009EBE1A /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,9 @@
 			children = (
 				F1768B572313D060009EBE1A /* AppDelegate.swift */,
 				F1768B592313D060009EBE1A /* ViewController.swift */,
+				F1768B6B2313D3CE009EBE1A /* WeatherModel.swift */,
 				F1768B5B2313D060009EBE1A /* Main.storyboard */,
+				F1768B692313D2AB009EBE1A /* weather_14.json */,
 				F1768B5E2313D062009EBE1A /* Assets.xcassets */,
 				F1768B602313D062009EBE1A /* LaunchScreen.storyboard */,
 				F1768B632313D062009EBE1A /* Info.plist */,
@@ -125,6 +131,7 @@
 				F1768B622313D062009EBE1A /* LaunchScreen.storyboard in Resources */,
 				F1768B5F2313D062009EBE1A /* Assets.xcassets in Resources */,
 				F1768B5D2313D060009EBE1A /* Main.storyboard in Resources */,
+				F1768B6A2313D2AB009EBE1A /* weather_14.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1768B5A2313D060009EBE1A /* ViewController.swift in Sources */,
+				F1768B6C2313D3CE009EBE1A /* WeatherModel.swift in Sources */,
 				F1768B582313D060009EBE1A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
