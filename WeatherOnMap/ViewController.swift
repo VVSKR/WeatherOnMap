@@ -14,14 +14,16 @@ class ViewController: UIViewController {
     
     let initialLocation = CLLocation(latitude: 55.7522200, longitude: 37.6155600)
     let regionRadius: CLLocationDistance = 3000
+    var weatherModel: Weather?
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       centerMapOnLocation(location: initialLocation)
+        centerMapOnLocation(location: initialLocation)
+        loadInitialData()
         
-//        mapView.addAnnotation()
+        //        mapView.addAnnotation()
     }
     
     
@@ -32,6 +34,23 @@ class ViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    func loadInitialData() {
+        guard let fileName = Bundle.main.path(forResource: "weather", ofType: "json")
+            else { return }
+       
+        let optionalData = try! Data(contentsOf: URL(fileURLWithPath: fileName))
+        let str = String(decoding: optionalData, as: UTF8.self)
+        let decoder = JSONDecoder()
+ 
+        do {
+            let decodeData = try decoder.decode(WeatherModel.self, from: optionalData)
+            print("Yes")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    
     
 }
-
