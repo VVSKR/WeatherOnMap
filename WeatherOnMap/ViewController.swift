@@ -9,11 +9,10 @@
 import UIKit
 import MapKit
 
-
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate {
     
     let initialLocation = CLLocation(latitude: 55.7522200, longitude: 37.6155600)
-    let regionRadius: CLLocationDistance = 3000
+    let regionRadius: CLLocationDistance = 6000
     var weatherModel: [WeatherAnotation] = []
     
     @IBOutlet weak var mapView: MKMapView!
@@ -54,30 +53,4 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-    
-}
-
-extension ViewController: MKMapViewDelegate {
-    
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        guard let annotation = annotation as? WeatherAnotation else { return nil }
-//        let identifier = "marker"
-//        var view: MKMarkerAnnotationView
-//
-//        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//            as? MKMarkerAnnotationView {
-//            dequeuedView.annotation = annotation
-//            view = dequeuedView
-//        } else {
-//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            view.canShowCallout = true
-//            view.calloutOffset = CGPoint(x: 0, y: 5)
-////            view.image = UIImage(named: annotation.image ?? "refresh")
-//            let image = UIImageView(frame: CGRect(origin: CGPoint.zero,
-//            size: CGSize(width: 30, height: 30)))
-//            image.image = UIImage(named: "sanny")
-//            view.rightCalloutAccessoryView = image
-//        }
-//        return view
-//    }
 }

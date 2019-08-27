@@ -53,7 +53,7 @@ func updateIcon (condition: Int) -> String {
         return "nimbostratus"
         
     case 800, 904 :
-        return "sanny"
+        return "sunny"
         
     case 801...804 :
         return "cloudy"
